@@ -27,12 +27,13 @@ public class GuessingApp{
          * Game loops runs untill the player 
          * exhausts the maximum attempts.
          */
-
+        int hintval=1;
         while(attempts < obj.getMaxAttempts()){
             System.out.println("Enter your guess: ");
             int guess=u.nextInt();
             attempts++;
-
+            // We call the hint generation function and increment the hint everytime so that the hints are limited
+            System.out.println(HintService.generateHint(obj.getTargetNumber(),hintval++));
             String result = GuessValidator.validateGuess(guess,obj.getTargetNumber());
             System.out.println(result);
             /**
